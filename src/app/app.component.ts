@@ -10,4 +10,8 @@ export class AppComponent {
   title = environment.sitename;
 
   keyword = 'test';
+
+  doSearch(str: string) {
+    this.keyword = str;
+  }
 }
