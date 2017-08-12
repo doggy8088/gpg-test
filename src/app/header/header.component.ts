@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   title = 'Hello';
+  title_link = 'https://blog.miniasp.com/'
 
   constructor() { }
 
