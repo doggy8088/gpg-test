@@ -13,9 +13,13 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    setTimeout(() => {
+  }
+
+  changeTitle($event: MouseEvent) {
+    console.log($event);
+    if ($event.ctrlKey) {
       this.title = 'The Will Will Web';
-    }, 2000);
+    }
   }
 
 }
