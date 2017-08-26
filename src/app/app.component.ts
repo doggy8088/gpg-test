@@ -9,13 +9,11 @@ import { DataService } from './data.service';
 })
 export class AppComponent {
   title = environment.sitename;
-
   keyword = 'test';
+  data$;
 
   constructor(private datasvc: DataService) {
-    datasvc.load().subscribe(res => {
-      this.data = res.json();
-    });
+    this.data$ = datasvc.load();
   }
 
   doSearch(str: string) {
@@ -23,9 +21,10 @@ export class AppComponent {
   }
 
   doDeleteArticle(item: any) {
-    let i = this.data.indexOf(item);
-    this.data.splice(i, 1);
+    this.datasvc.remove(item.id).subscribe((res) => {
+    },
+    (err) => {
+      console.log(err);
+    });
   }
-
-  data;
 }
