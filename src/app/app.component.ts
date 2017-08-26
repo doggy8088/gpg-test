@@ -13,7 +13,9 @@ export class AppComponent {
   keyword = 'test';
 
   constructor(private datasvc: DataService) {
-    this.data = datasvc.data;
+    datasvc.load().subscribe(res => {
+      this.data = res.json();
+    });
   }
 
   doSearch(str: string) {
